@@ -48,7 +48,7 @@ const Navigation = () => {
                     aria-label="Search"
                     />
                     <div className="d-flex align-items-center justify-content-center">
-                    <i class="fas fa-shopping-cart fs-5 text-white"></i><Badge bg="secondary">0</Badge>
+                    <i className="fas fa-shopping-cart fs-5 text-white"></i><Badge bg="secondary">0</Badge>
                     </div>
                 </Form>
                 </Navbar.Collapse>
