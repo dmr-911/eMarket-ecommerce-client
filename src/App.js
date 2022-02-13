@@ -4,7 +4,7 @@ import Navigation from './Pages/Shared/Navigation/Navigation';
 import Home from './Pages/Home/Home/Home';
 import AuthProvider from './Context/AuthProvider';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import ProductDetails from './Pages/ProductDetails/ProductDetails/ProductDetails';
 
 function App() {
   return (

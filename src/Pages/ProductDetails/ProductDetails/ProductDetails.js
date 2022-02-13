@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Breadcrumb, Carousel, Col, Container, Row } from 'react-bootstrap';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import useProducts from '../../hooks/useProducts';
+import useProducts from '../../../hooks/useProducts';
+
 import './ProductDetails.css';
 
 const ProductDetails = () => {
