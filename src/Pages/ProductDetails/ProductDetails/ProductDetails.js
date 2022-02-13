@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Breadcrumb, Carousel, Col, Container, Row } from 'react-bootstrap';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import useProducts from '../../../hooks/useProducts';
 import DetailsAccordion from '../DetailsAccordion/DetailsAccordion';
 
 import './ProductDetails.css';
 
 const ProductDetails = () => {
+    const {count, setCount} = useAuth();
+    const [disabled, setDisabled] = useState(false)
     const {key} = useParams();
     const {products} = useProducts();
     const navigate = useNavigate();
@@ -19,6 +22,12 @@ const ProductDetails = () => {
 
     const handleClick = () =>{
         navigate('/');
+    };
+
+    const handleAddToBag = key =>{
+        const modified = count+1;
+        setCount(modified);
+        setDisabled(true);
     };
     return (
         <div className="mt-5">
@@ -57,7 +66,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <p><b>Options : </b> Coming soon</p>
-                        <button className="btn btn-success w-100 fs-5 my-3">ADD TO BAG</button>
+                        <button className="btn btn-success w-100 fs-5 my-3" onClick={()=>handleAddToBag(key)} disabled={disabled}>ADD TO BAG</button>
 
                         {
                             product?.features && <>

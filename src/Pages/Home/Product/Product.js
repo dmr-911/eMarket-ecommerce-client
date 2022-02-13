@@ -10,8 +10,6 @@ const Product = ({product}) => {
     const navigate = useNavigate();
     const cart = <FontAwesomeIcon icon={faCartPlus} />;
     const onHandleClick = (key) =>{
-        // const modified = count+1;
-        // setCount(modified);
         navigate(`/product_details/${key}`)
     };
     return (
@@ -19,7 +17,7 @@ const Product = ({product}) => {
         <Card className="py-3 digital-cart" data-aos="fade-up">
             <div>
             <div>
-                <img className="pt-y" src={img} alt="" height="150px" width="150px"/>
+                <img className="py-2" src={img} alt="" height="150px" width="150px"/>
             </div>
             <Card.Body>
             <Card.Title className="fs-6">{name.slice(0,24)}</Card.Title>

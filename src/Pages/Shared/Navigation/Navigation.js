@@ -35,7 +35,7 @@ const Navigation = () => {
                         <span className="nav-icon nav-wishlist">
                         </span>
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/" className="mx-auto">
+                    <Nav.Link as={Link} to="/bag" className="mx-auto">
                         <span className="nav-icon nav-cart">
                             <span className="nav-text">{count <100 ? count : 'NL'}</span>
                         </span>
