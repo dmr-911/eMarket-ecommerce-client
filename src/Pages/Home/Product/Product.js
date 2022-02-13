@@ -1,18 +1,18 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
-import Rating from 'react-rating';
+import { Card, Col} from 'react-bootstrap';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import './Product.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useAuth from '../../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
-    const {img, price, stock, name, star, features} = product;
-    const {count,setCount} = useAuth();
+    const {img, price, name, key} = product;
+    const navigate = useNavigate();
     const cart = <FontAwesomeIcon icon={faCartPlus} />;
-    const onHandleClick = () =>{
-        const modified = count+1;
-        setCount(modified);
+    const onHandleClick = (key) =>{
+        // const modified = count+1;
+        // setCount(modified);
+        navigate(`/product_details/${key}`)
     };
     return (
         <Col>
@@ -24,7 +24,7 @@ const Product = ({product}) => {
             <Card.Body>
             <Card.Title className="fs-6">{name.slice(0,24)}</Card.Title>
             <p><small>Price: ${price}</small></p>
-            <button className="btn-products" onClick={onHandleClick}><span className="me-2">{cart}</span>Details</button>
+            <button className="btn-products" onClick={()=>onHandleClick(key)}><span className="me-2">{cart}</span>Details</button>
             </Card.Body>
             </div>
         </Card>
