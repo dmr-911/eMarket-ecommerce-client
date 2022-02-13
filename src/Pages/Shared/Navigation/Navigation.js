@@ -3,13 +3,14 @@ import './Navigation.css';
 import logo from '../../../images/logo/eMarket-logos_transparent.png';
 import { Badge, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     const {count} = useAuth();
     return (
         <Navbar variant="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">
+                <Navbar.Brand as={Link} to="/">
                 <img
                     src={logo}
                     width="90"
@@ -25,15 +26,15 @@ const Navigation = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#login" className="mx-auto">
+                    <Nav.Link as={Link} to="/" className="mx-auto">
                         <span className="nav-icon nav-account">
                         </span>
                     </Nav.Link>
-                    <Nav.Link href="#login" className="mx-auto">
+                    <Nav.Link as={Link} to="/" className="mx-auto">
                         <span className="nav-icon nav-wishlist">
                         </span>
                     </Nav.Link>
-                    <Nav.Link href="#login" className="mx-auto">
+                    <Nav.Link as={Link} to="/" className="mx-auto">
                         <span className="nav-icon nav-cart">
                             <span className="nav-text">{count <100 ? count : 'NL'}</span>
                         </span>
