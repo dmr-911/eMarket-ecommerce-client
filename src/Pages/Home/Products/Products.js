@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
+import { Breadcrumb, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Product from '../Product/Product';
 import './Products.css';
@@ -8,6 +9,11 @@ const Products = () => {
     const {products} = useAuth();
     return (
         <div>
+            <Container>
+            <Breadcrumb>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            </Breadcrumb>
+            </Container>
             <Row xs={1} md={4} className="g-3 my-3">
                 {
                     products.map(product => <Product
