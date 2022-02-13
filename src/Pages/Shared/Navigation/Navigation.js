@@ -2,8 +2,10 @@ import React from 'react';
 import './Navigation.css';
 import logo from '../../../images/logo/eMarket-logos_transparent.png';
 import { Badge, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
+    const {count} = useAuth();
     return (
         <Navbar className="nav-bg" variant="dark" expand="lg">
             <Container fluid>
@@ -48,7 +50,7 @@ const Navigation = () => {
                     aria-label="Search"
                     />
                     <div className="d-flex align-items-center justify-content-center">
-                    <i className="fas fa-shopping-cart fs-5 text-white"></i><Badge bg="secondary">0</Badge>
+                    <i className="fas fa-shopping-cart fs-5 text-white"></i><Badge bg="secondary">{count}</Badge>
                     </div>
                 </Form>
                 </Navbar.Collapse>

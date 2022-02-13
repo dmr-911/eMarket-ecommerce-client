@@ -8,8 +8,7 @@ const Products = () => {
     const {products} = useAuth();
     return (
         <div>
-            <h2>This is products {products.length}</h2>
-            <Row xs={1} md={2} className="g-3">
+            <Row xs={1} md={4} className="g-3 my-3">
                 {
                     products.map(product => <Product
                     key={product.key}
