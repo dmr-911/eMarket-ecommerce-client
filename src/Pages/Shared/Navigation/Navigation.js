@@ -9,7 +9,7 @@ const Navigation = () => {
     const {count} = useAuth();
     return (
         <Navbar variant="light" expand="lg">
-            <Container fluid>
+            <Container fluid className="d-flex justify-content-between">
                 <Navbar.Brand as={Link} to="/">
                 <img
                     src={logo}
@@ -19,11 +19,12 @@ const Navigation = () => {
                     alt="React Bootstrap logo"
                 />
                 </Navbar.Brand>
+                <h2>eMarket</h2>
                 <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
+                <Navbar.Collapse id="navbarScroll" style={{ maxHeight: '100px'}}>
                 <Nav
                     className="ms-auto my-2 my-lg-0"
-                    style={{ maxHeight: '100px' }}
+                    style={{ maxHeight: '100px'}}
                     navbarScroll
                 >
                     <Nav.Link as={Link} to="/" className="mx-auto">

@@ -20,3 +20,6 @@
     bottom: 0px;
     right: 3px;
 }
+.navbar-collapse{
+    flex-grow: 0;
+}

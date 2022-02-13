@@ -87,7 +87,7 @@ const Footer = () => {
         </Container>
         <Container
           fluid
-          className="py-5"
+          className="mb-3"
         >
               <small>
                 Copyright ©DMR 2021 Be9digital Market. All rights reserved.
