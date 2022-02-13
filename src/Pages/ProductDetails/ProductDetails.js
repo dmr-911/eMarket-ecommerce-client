@@ -18,7 +18,6 @@ const ProductDetails = () => {
     const handleClick = () =>{
         navigate('/');
     };
-    console.log(product);
     return (
         <div>
             <Container>
@@ -34,7 +33,6 @@ const ProductDetails = () => {
                     <Carousel activeIndex={index} onSelect={handleSelect}>
                         <Carousel.Item>
                             <img
-                            className="d-block img-fluid mx-auto"
                             src={product?.img}
                             alt="First slide"
                             />
@@ -48,13 +46,30 @@ const ProductDetails = () => {
                         <del>Price : ${product?.price}</del>
                         <p>Price : <span className="text-danger fw-bold fs-3">${Math.ceil(product?.price - (20*product?.price/100))}</span> (20% off)</p>
                         <p><b>Colour : </b> Coming soon</p>
-                        <div>
+                        <div className="mb-3">
                             <div className="round">
                                 <input type="checkbox" id="checkbox" />
-                                <label for="checkbox"></label>
+                                <label htmlFor="checkbox"></label>
                             </div>
                         </div>
+                        <p><b>Options : </b> Coming soon</p>
+                        <button className="btn btn-success w-75 fs-5 my-3">ADD TO BAG</button>
 
+                        {
+                            product?.features && <>
+                            <h5><b>Details</b></h5>
+                            {
+                                product?.features?.map(pd =>
+                                    <small key={pd.value}>
+                                    <li>{pd?.description}</li>
+                                    <li>{pd?.value}</li>
+                                    </small>)
+                            }
+                            </> 
+                        }
+                        <hr />
+                        <h4 className="my-3">Delevery</h4>
+                        
                     </Col>
                 </Row>
             </Container>
