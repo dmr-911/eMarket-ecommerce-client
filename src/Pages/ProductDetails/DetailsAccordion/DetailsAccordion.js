@@ -5,7 +5,7 @@ import './DetailsAccordion.css';
 const DetailsAccordion = () => {
     return (
         <div className="mb-3">
-            <Accordion>
+            <Accordion defaultActiveKey={['0']} alwaysOpen>
             <Accordion.Item eventKey="0">
                 <Accordion.Header>Delivery</Accordion.Header>
                 <Accordion.Body>

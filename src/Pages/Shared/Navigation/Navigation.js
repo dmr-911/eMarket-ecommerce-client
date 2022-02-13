@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Navigation = () => {
     const {count} = useAuth();
     return (
-        <Navbar variant="light" expand="lg">
+        <Navbar variant="light" expand="lg" className="fixed-top" bg="light">
             <Container fluid className="d-flex justify-content-between">
                 <Navbar.Brand as={Link} to="/">
                 <img
@@ -19,7 +19,7 @@ const Navigation = () => {
                     alt="React Bootstrap logo"
                 />
                 </Navbar.Brand>
-                <h2>eMarket</h2>
+                <Navbar.Brand as={Link} to="/"><h2>eMarket</h2></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll" style={{ maxHeight: '100px'}}>
                 <Nav

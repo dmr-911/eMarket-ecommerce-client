@@ -16,10 +16,10 @@ const Product = ({product}) => {
     };
     return (
         <Col>
-        <Card className="p-3 digital-cart" data-aos="fade-up">
+        <Card className="py-3 digital-cart" data-aos="fade-up">
             <div>
             <div>
-                <img className="" src={img} alt="" height="300px" width="150px"/>
+                <img className="pt-y" src={img} alt="" height="150px" width="150px"/>
             </div>
             <Card.Body>
             <Card.Title className="fs-6">{name.slice(0,24)}</Card.Title>

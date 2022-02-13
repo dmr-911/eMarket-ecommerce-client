@@ -21,8 +21,8 @@ const ProductDetails = () => {
         navigate('/');
     };
     return (
-        <div>
-            <Container>
+        <div className="mt-5">
+            <Container className="pt-3">
             <Breadcrumb>
             <Breadcrumb.Item onClick={handleClick}>Home</Breadcrumb.Item>
             <Breadcrumb.Item onClick={handleClick}>Product details</Breadcrumb.Item>
@@ -37,6 +37,8 @@ const ProductDetails = () => {
                             <img
                             src={product?.img}
                             alt="First slide"
+                            height="218"
+                            width="218"
                             />
                             <Carousel.Caption>
                             </Carousel.Caption>
@@ -55,7 +57,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <p><b>Options : </b> Coming soon</p>
-                        <button className="btn btn-success w-75 fs-5 my-3">ADD TO BAG</button>
+                        <button className="btn btn-success w-100 fs-5 my-3">ADD TO BAG</button>
 
                         {
                             product?.features && <>
