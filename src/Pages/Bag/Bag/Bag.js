@@ -5,6 +5,7 @@ import { getStoredCart } from '../../../utilities/localStorage';
 import CartProduct from '../CartProduct/CartProduct';
 import './Bag.css';
 
+
 const Bag = () => {
     const {products, setCount} = useAuth();
     const [cart, setCart] = useState([]);
@@ -34,7 +35,6 @@ const Bag = () => {
                 <thead>
                     <tr>
                     <th>Product</th>
-                    <th>Edit</th>
                     <th>Total</th>
                     </tr>
                 </thead>
