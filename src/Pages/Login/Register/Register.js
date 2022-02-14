@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
-import useAuth from '../../hooks/useAuth';
 import GoogleButton from 'react-google-button';
+import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
   const {isLoading, error, registerUser, setError} = useAuth();
@@ -29,7 +29,7 @@ const Register = () => {
     };
 
     return (
-    <Container className="my-5">
+    <Container className="my-5 pt-5">
     <div className="login-form-container border border-1">
     <div className="page-title text-center">
         Create an account
@@ -46,7 +46,7 @@ const Register = () => {
             onBlur={handleOnBlur}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicEmail2">
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -65,7 +65,7 @@ const Register = () => {
             onBlur={handleOnBlur}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="formBasicPassword2">
           <Form.Control
             type="password"
             placeholder="Re-type Password"
