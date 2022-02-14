@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import './CartProduct.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,9 +8,26 @@ import useAuth from '../../../hooks/useAuth';
 const CartProduct = ({product}) => {
     const {count,setCount} = useAuth();
     const {price, quantity, img, name} = product;
+    const [newQuantity, setNewQuantity] = useState({quantity : quantity})
     const total = price * quantity;
     const minus = <FontAwesomeIcon icon={ faMinus } />;
     const plus = <FontAwesomeIcon icon={ faPlus } />
+    const handleMinus = () =>{
+        const modified = {...newQuantity};
+        if(newQuantity.quantity > 0){
+            modified.quantity--;
+        }
+        setNewQuantity(modified);
+    }
+    const handlePlus = () =>{
+        const modified = {...newQuantity};
+        if(newQuantity.quantity > 0){
+            modified.quantity++;
+        }
+        setNewQuantity(modified);
+    };
+
+    console.log(newQuantity);
     return (
         <tr>
         <td>
@@ -24,7 +41,7 @@ const CartProduct = ({product}) => {
                         <p>Price : <b>${price}</b></p>
                         <p>Quantity : {quantity}</p>
                         <div>
-                        <button className="cart-button">{minus}</button><input className="cart-input" value={quantity} type="number" disabled/><button className="cart-button">{plus}</button>
+                        <button className="cart-button" onClick={handleMinus}>{minus}</button><input className="cart-input" value={newQuantity.quantity} type="number" disabled/><button className="cart-button" onClick={handlePlus}>{plus}</button>
                         </div>
                         <button className="btn btn-danger my-3">Remove</button>
                         </div>

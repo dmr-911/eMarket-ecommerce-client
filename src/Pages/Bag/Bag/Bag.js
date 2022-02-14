@@ -27,8 +27,7 @@ const Bag = () => {
     for(const product of cart){
         totalQuantity = totalQuantity + product.quantity;
     }
-    setCount(totalQuantity)
-    console.log(totalQuantity);
+    setCount(totalQuantity);
     return (
         <Container className="mt-5 pt-5">
             <Table striped bordered hover size="sm">
