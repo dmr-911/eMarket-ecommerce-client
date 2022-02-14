@@ -1,0 +1,7 @@
+.bag-footer{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 224, 199);
+}

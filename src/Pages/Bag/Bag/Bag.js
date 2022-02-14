@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Button, Container, Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import { getStoredCart } from '../../../utilities/localStorage';
 import CartProduct from '../CartProduct/CartProduct';
@@ -9,7 +9,9 @@ import './Bag.css';
 const Bag = () => {
     const {products, setCount} = useAuth();
     const [cart, setCart] = useState([]);
+    const [total, setTotal] = useState(0);
     let totalQuantity = 0 ;
+    let totalPrice = 0;
 
     useEffect(()=>{
         const savedCart = getStoredCart();
@@ -24,10 +26,25 @@ const Bag = () => {
         setCart(storedCart);
     },[products]);
 
+    useEffect(()=>{
+        console.log(cart);
+        for(const product of cart){
+            totalPrice = totalPrice + product.price*product.quantity;
+            setTotal(totalPrice)
+        }
+    },[cart])
+
     for(const product of cart){
         totalQuantity = totalQuantity + product.quantity;
-    }
+    };
+    
+    const removeCartItem = key =>{
+        const rest = cart.filter(product => product.key !== key);
+        setCart(rest);
+    };
+    
     setCount(totalQuantity);
+    
     return (
         <Container className="mt-5 pt-5">
             <Table striped bordered hover size="sm">
@@ -42,10 +59,15 @@ const Bag = () => {
                     cart.map(product =><CartProduct
                     key={product.key}
                     product={product}
+                    removeCartItem= {removeCartItem}
                     ></CartProduct>)
                 }
                 </tbody>
             </Table>
+            <div className="me-auto border border-1 bag-footer">
+                Subtotal : <b>${total}</b>
+            </div>
+            <Button variant="success" className="me-auto my-3">Proceed to checkout</Button>
         </Container>
     );
 };
