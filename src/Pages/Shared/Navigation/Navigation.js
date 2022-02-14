@@ -27,7 +27,7 @@ const Navigation = () => {
                     style={{ maxHeight: '100px'}}
                     navbarScroll
                 >
-                    <Nav.Link as={Link} to="/" className="mx-auto">
+                    <Nav.Link as={Link} to="/login" className="mx-auto">
                         <span className="nav-icon nav-account">
                         </span>
                     </Nav.Link>
