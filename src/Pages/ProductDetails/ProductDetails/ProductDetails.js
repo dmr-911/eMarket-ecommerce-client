@@ -3,6 +3,7 @@ import { Breadcrumb, Carousel, Col, Container, Row } from 'react-bootstrap';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import useProducts from '../../../hooks/useProducts';
+import { addToDb } from '../../../utilities/localStorage';
 import DetailsAccordion from '../DetailsAccordion/DetailsAccordion';
 
 import './ProductDetails.css';
@@ -27,6 +28,7 @@ const ProductDetails = () => {
     const handleAddToBag = key =>{
         const modified = count+1;
         setCount(modified);
+        addToDb(key);
         setDisabled(true);
     };
     return (
