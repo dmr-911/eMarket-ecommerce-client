@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { getStoredCart } from '../../../utilities/localStorage';
 import CartProduct from '../CartProduct/CartProduct';
@@ -10,6 +11,7 @@ const Bag = () => {
     const {products, setCount} = useAuth();
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
+    const navigate = useNavigate();
     let totalQuantity = 0 ;
     let totalPrice = 0;
 
@@ -44,6 +46,10 @@ const Bag = () => {
     };
     
     setCount(totalQuantity);
+
+    const handleCheckout = () =>{
+        navigate('/checkout');
+    }
     
     return (
         <Container className="mt-5 pt-5">
@@ -67,7 +73,7 @@ const Bag = () => {
             <div className="me-auto border border-1 bag-footer">
                 Subtotal : <b>${total}</b>
             </div>
-            <Button variant="success" className="me-auto my-3">Proceed to checkout</Button>
+            <Button variant="success" className="me-auto my-3" onClick={handleCheckout}>Proceed to checkout</Button>
         </Container>
     );
 };

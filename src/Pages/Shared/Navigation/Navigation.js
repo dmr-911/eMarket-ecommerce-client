@@ -6,7 +6,8 @@ import useAuth from '../../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
-    const {count} = useAuth();
+    const {count, user, logOut} = useAuth();
+    console.log(user);
     return (
         <Navbar variant="light" expand="lg" className="fixed-top" bg="light">
             <Container fluid className="d-flex justify-content-between">
@@ -27,7 +28,7 @@ const Navigation = () => {
                     style={{ maxHeight: '100px'}}
                     navbarScroll
                 >
-                    <Nav.Link as={Link} to="/login" className="mx-auto">
+                    <Nav.Link as={Link} to={user.email ? "" : "/login"} title={user.email ? user.displayName : "Login"} className="mx-auto">
                         <span className="nav-icon nav-account">
                         </span>
                     </Nav.Link>
@@ -40,6 +41,7 @@ const Navigation = () => {
                             <span className="nav-text">{count <100 ? count : 'NL'}</span>
                         </span>
                     </Nav.Link>
+                    {user.email && <button className="btn btn-danger" onClick={logOut}>LogOut</button>}
                 </Nav>
                 </Navbar.Collapse>
             </Container>

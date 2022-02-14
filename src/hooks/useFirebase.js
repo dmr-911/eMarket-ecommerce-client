@@ -25,9 +25,6 @@ const useFirebase = () =>{
           const newUser = { email, displayName: name };
           setUser(newUser);
 
-          // save user to the database
-          saveUser(email, name, 'POST');
-
           // send name to firebase after creation
           updateProfile(auth.currentUser, {
             displayName: name
@@ -52,7 +49,6 @@ const useFirebase = () =>{
       signInWithPopup(auth, googleProvider)
         .then((result) => {
           const user = result.user;
-          saveUser(user.email, user.displayName, 'PUT');
           setAuthError('');
           const destination = location?.state?.from || '/';
           navigate(destination);
@@ -67,6 +63,7 @@ const useFirebase = () =>{
           setUser(user);
           getIdToken(user)
           .then(idToken =>{
+            console.log(idToken);
             setToken(idToken);
           })
         } 
@@ -76,14 +73,6 @@ const useFirebase = () =>{
         setIsLoading(false);
       });
     }, [auth]);
-
-    useEffect(() => {
-      fetch(`https://be9digital-market.herokuapp.com/users/${user.email}`)
-        .then(res => res.json())
-        .then(data => {
-          setAdmin(data.admin)
-        });
-    }, [user.email])
 
     const logOut = () => {
       setIsLoading(true);
@@ -97,19 +86,7 @@ const useFirebase = () =>{
         .finally(() => setIsLoading(false));
     };
 
-    const saveUser = (email, displayName, method) => {
-      const user = { email, displayName };
-      fetch('https://be9digital-market.herokuapp.com/users', {
-        method: method,
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      })
-        .then()
-    }
-
-    return {user, error, token, googleSignIn, logOut, isLoading, setError, setIsLoading, registerUser, emailSignIn, authError, admin, count, setCount, products, setProducts};
+    return {user, error, token, isLoading, authError, admin, count, products, googleSignIn, logOut, setError, setIsLoading, registerUser, emailSignIn, setCount, setProducts};
 };
 
 export default useFirebase;

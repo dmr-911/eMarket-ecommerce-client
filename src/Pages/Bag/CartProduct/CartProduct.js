@@ -35,7 +35,7 @@ const CartProduct = ({product, removeCartItem}) => {
         <td>
             <Row xs={1} md={2}>
                 <Col xs={12} md={4}>
-                    <img src={img} alt="" xs={12} md={3}/>
+                    <img src={img} alt="" height="218" width="218"/>
                 </Col>
                 <Col xs={12} md={8} className="d-flex justify-content-center align-items-center">
                         <div>
